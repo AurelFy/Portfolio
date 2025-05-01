@@ -1,26 +1,94 @@
 @import 'utils/variables';
 @import 'components/type';
 
-
-body {
-    height: 100vh;
-    width: 100vw;
-    background-image: url("../assets/images/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-h1 {
-    font-family: "arsenica-variable", sans-serif;
-    font-variation-settings: "opsz" 400, "wght" 400;
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fafafa;
+}
+
+body {
+    height: 400vh;
+    background-color: #121212;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px;
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 10;
+    background-color: transparent;
+}
+
+.menu--links {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #121212;
+    color: #fafafa;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    gap: 30px; 
+    transition: 
+    transform .3s ease-out,
+    opacity .3s ease-out;
     text-transform: uppercase;
-    font-size: 113px;
-    margin: 10%;
-    color: white;
-    text-align: center;
+}
+
+.menu--links__el:hover {
+    color: #3585CD;
+    opacity: .9;
+    transition: .5s;
+}
+
+.menu--links__el.active {
+    text-decoration: line-through;
+}
+
+.menu--burger {
+    z-index: 1000;
+}
+
+.menu--links__hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.menu--logo {
+    width: 40px;
+    height: 40px;
+    background-image: url(../assets/images/logo.svg);
+    background-size: cover;
+}
+
+.intro {
+    background-image: url(../assets/images/background_pc.png);
+    background-repeat: no-repeat;
+    background-size: top;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
 }

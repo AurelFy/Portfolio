@@ -21,9 +21,20 @@ a {
 }
 
 body {
-    height: 400vh;
     background-color: #121212;
+    font-family: 'Arsenica Variable', serif;
+    color: #fafafa;
+    overflow-x: hidden;
 }
+
+html, body {
+    width: 100%;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+// MENU
 
 .menu {
     display: flex;
@@ -34,12 +45,12 @@ body {
     box-sizing: border-box;
     width: 100%;
     z-index: 10;
-    background-color: transparent;
+    background-color: #121212;
 }
 
 .menu--links {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: #121212;
     color: #fafafa;
@@ -84,11 +95,142 @@ body {
     background-size: cover;
 }
 
+
+// HOME
+
 .intro {
-    background-image: url(../assets/images/background_pc.png);
-    background-repeat: no-repeat;
-    background-size: top;
     height: 100vh;
-    width: 100vw;
     position: relative;
+    padding: 20px;
+    font-weight: 400;
+    font-size: 49px;
+}
+
+.intro--pres {
+    width: 100%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.intro--pres__text01 {
+    font-size: 49px;
+}
+
+.intro--pres__name {
+    font-weight: 700;
+}
+
+.intro--pres__text02 {
+    font-weight: 700;
+    display: block;
+}
+
+.intro--pres__work {
+    font-size: 41px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+
+// ABOUT ME 
+
+.about {
+    height: 100vh;
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about--title{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.about--title span{
+    position: relative;
+}
+
+.about--title span::before{
+    content: "Student";
+    color: #b34949;
+    animation: words 20s;
+}
+
+.about--title span::after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 110%;
+    background-color: #121212;
+    border-left: 2px solid #b34949;
+    right: -8px;
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to{
+        border-left: 2px solid #121212;
+    }
+}
+
+@keyframes words {
+    0%,20%{
+        content: "Student";
+    }
+    21%,40%{
+        content: "Belgian";
+    }
+    41%,60%{
+        content: "Designer";
+    }
+    61%,80%{
+        content: "Developer";
+    }
+    81%,100%{
+        content: "Creator";
+    }
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+}
+
+.about--text {
+    font-size: 23px;
+}
+
+.about--text:first-of-type {
+    margin-top: 70px;
+    margin-bottom: 34px ;
+}
+
+.about--links {
+    margin: 70px 0 0 0;
+    width: 100%;
+    height: auto;
+}
+
+.links--btn {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    margin-right: 23px;
+}
+
+.about--links__github {
+    background-image: url('../assets/images/github.svg'); 
+}
+
+.about--links__linkedin {
+    background-image: url('../assets/images/linkedin.svg'); 
 }

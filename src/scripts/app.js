@@ -18,3 +18,4 @@ function hideMenu() {
     var menu = document.querySelector(".menu--links");
     menu.classList.toggle("menu--links__hidden");
 } 
+

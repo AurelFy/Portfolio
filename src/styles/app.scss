@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 ul {
     list-style: none;
 }
@@ -46,6 +50,11 @@ html, body {
     width: 100%;
     z-index: 10;
     background-color: transparent;
+}
+
+.menu--sup {
+    background-color: rgb(250, 250, 250, 0.01);
+    backdrop-filter: blur(20px);
 }
 
 .menu--links {
@@ -101,11 +110,11 @@ html, body {
 .intro {
     height: 100vh;
     position: relative;
-    padding: 20px;
+    padding: 23px;
     font-weight: 400;
     font-size: 49px;
-    background-image: url('../assets/images/background_phone.png');
-    background-size: cover;
+    background-image: url('../assets/images/background_pc.png');
+    object-fit: cover;
 }
 
 .intro--gradient {
@@ -125,7 +134,8 @@ html, body {
 
 .intro--pres__text01 {
     font-weight: 400;
-    font-size: 49px;
+    // font-size: 49px;
+    font-size: clamp(3.0625rem, 0.75rem + 10.2778vw, 10rem);
 }
 
 .intro--pres__name {
@@ -138,7 +148,8 @@ html, body {
 }
 
 .intro--pres__work {
-    font-size: 41px;
+    // font-size: 41px;
+    font-size: clamp(2.5625rem, 1.0625rem + 6.6667vw, 7.0625rem);
     font-style: italic;
     font-weight: 300;
 }
@@ -167,7 +178,7 @@ html, body {
 .about--title span::before{
     content: "Student";
     color: #b34949;
-    animation: words 20s;
+    animation: words 20s infinite;
 }
 
 .about--title span::after{
@@ -216,15 +227,16 @@ html, body {
 
 .about--text {
     font-size: 23px;
+    max-width: 405px;
 }
 
 .about--text:first-of-type {
-    margin-top: 70px;
+    margin-top: 72px;
     margin-bottom: 34px ;
 }
 
 .about--links {
-    margin: 70px 0 0 0;
+    margin: 72px 0 0 0;
     width: 100%;
     height: auto;
 }
@@ -253,23 +265,60 @@ html, body {
     text-align: center;
 }
 
-.projects--links {
+.projects--title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 87px 0;
+}
+
+.projects--title__deco {
+    width: 100%;
+    height: 2px;
+    background-color: #fafafa;
+}
+
+.projects--title__deco:first-of-type {
+    left: 0;
+}
+
+.projects--title__deco:last-of-type {
+    right: 0;
+}
+
+.projects--title h2 {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0 16px;
+}
+
+.project {
+    margin-bottom: 72px;
+}
+
+.project:last-of-type {
+    margin-bottom: 87px;
+}
+
+.project--links {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.projects--links img {
+.project--links img {
     width: 250px;
     height: 250px;
+    transition: all ease-out 0.4s;
 }
 
 .absolute {
     position: absolute;
 }
 
-.projects--link {
+.project--link {
     display: block;
     width: 300px;
     height: 300px;
@@ -280,7 +329,19 @@ html, body {
     justify-content: center;
     align-items: center;
     animation: spin 15s linear infinite;
+    z-index: 5;
+    transition: all ease-out 0.4s;
 }
+
+.project--link:hover {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .project--link:hover ~ .project--links__img {
+    width: 300px;
+    height: 300px;
+  }
 
 .link--janus {
     background-image: url('../assets/images/janus.png');
@@ -288,7 +349,6 @@ html, body {
 
 .link--data {
     background-image: url('../assets/images/data.png');
-    margin: 70px 0;
 }
 
 .link--fiction {
@@ -303,4 +363,116 @@ html, body {
       transform: rotate(360deg);
     }
   }
+
+.project h3 {
+    font-weight: 300;    
+    margin-top: 16px;
+    font-size: 23px;
+}
+    
+
+
+
+// FOOTER 
+
+.footer {
+    margin-top: 72px;
+    height: auto;
+    padding: 28px 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer--line {
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    height: 2px;
+    width: 60%;
+    background-color: #fafafa;
+}
+
+.footer--content {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px){
+
+    .intro {
+        padding: 60px;
+    }
+
+    .about {
+        padding: 0 47px;
+    }
+
+    .about--title {
+        font-size: 47px;
+    }
+
+    .about--text {
+        max-width: 650px;
+        font-size: 29px;
+    }
+
+    .about--text:first-of-type {
+        margin-top: 76px;
+        margin-bottom: 43px ;
+    }
+
+    .about--links {
+        margin-top: 76px;
+    }
+
+    .links--btn {
+        width: 50px;
+        height: 50px;
+        margin-right: 29px;
+    }
+
+    .project--links img {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .project--link {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .project--link:hover {
+        width: 400px;
+        height: 400px;
+      }
+      
+      .project--link:hover ~ .project--links__img {
+        width: 350px;
+        height: 350px;
+      }
+
+      .project h3 {   
+        margin-top: 18px;
+        font-size: 29px;
+    }
+    
+    .projects--title {
+        margin-bottom: 123px;
+    }
+
+    .project {
+        margin-bottom: 97px;
+    }
+
+    .footer {
+        margin-top: 123px;
+    }
+
+}
+
 

@@ -4,6 +4,7 @@
 * {
     margin: 0;
     padding: 0;
+    cursor: none;
 }
 
 html {
@@ -28,6 +29,7 @@ body {
     background-color: #121212;
     font-family: 'Arsenica Variable', serif;
     color: #fafafa;
+    position: relative;
 }
 
 html, body {
@@ -36,6 +38,19 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+  }
+
+// CURSEUR 
+
+.cursor--center {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    background-color: #b34949;
+    z-index: 1002;
+    pointer-events: none; /* Important pour que la souris interagisse avec les éléments en dessous */
+    transform: translate(-50%, -50%); /* pour centrer le cercle sur le pointeur */
   }
 
 // MENU
@@ -49,10 +64,6 @@ html, body {
     box-sizing: border-box;
     width: 100%;
     z-index: 10;
-    background-color: transparent;
-}
-
-.menu--sup {
     background-color: rgb(250, 250, 250, 0.01);
     backdrop-filter: blur(20px);
 }
@@ -79,7 +90,7 @@ html, body {
 }
 
 .menu--links__el:hover {
-    opacity: .5;
+    // opacity: .5;
     transition: .5s;
 }
 
@@ -134,7 +145,6 @@ html, body {
 
 .intro--pres__text01 {
     font-weight: 400;
-    // font-size: 49px;
     font-size: clamp(3.0625rem, 0.75rem + 10.2778vw, 10rem);
 }
 
@@ -145,6 +155,7 @@ html, body {
 .intro--pres__text02 {
     font-weight: 700;
     display: block;
+    font-size: clamp(3.0625rem, 0.75rem + 10.2778vw, 10rem);
 }
 
 .intro--pres__work {
@@ -291,6 +302,7 @@ html, body {
     font-size: 34px;
     font-weight: 700;
     margin: 0 16px;
+    text-transform: uppercase;
 }
 
 .project {
@@ -405,7 +417,12 @@ html, body {
 @media (min-width: 768px){
 
     .intro {
-        padding: 60px;
+        padding: 0;
+    }
+
+    .intro--pres {
+        margin:47px;
+        line-height: 250%;
     }
 
     .about {
@@ -436,6 +453,10 @@ html, body {
         margin-right: 29px;
     }
 
+    .projects {
+        padding: 123px 0;
+    }
+
     .project--links img {
         width: 300px;
         height: 300px;
@@ -461,16 +482,78 @@ html, body {
         font-size: 29px;
     }
     
-    .projects--title {
-        margin-bottom: 123px;
-    }
+    /* .projects--title {
+        margin: 123px 0 123px 0;
+    } */ 
 
     .project {
         margin-bottom: 97px;
     }
 
+    .projects--title {
+        margin-top: 0;
+    }
+
     .footer {
         margin-top: 123px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .menu--burger {
+        display: none;
+    }
+
+    .menu--links {
+        position: relative;
+        background-color: transparent;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        gap: 32px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .menu--links__el {
+        transition: all;
+    }
+
+    .menu--links__el::before {
+        content: "—";
+        color: #b34949;
+        font-weight: 900;
+        opacity: 0;
+        transition: all ease-out 0.6s;
+    }
+
+    .menu--links__el::before {
+        margin-right: 5px;
+    }
+
+    .menu--links__el:hover {
+
+
+        &::before {
+            opacity: 1;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    
+
+    .menu--links__hidden {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .menu {
+        padding: 20px 57px;
     }
 
 }

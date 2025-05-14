@@ -78,7 +78,7 @@ gsap.from('.about--text', {
   x : -50,
   opacity : 0, 
   duration : 1,
-  stagger : 0.6, 
+  stagger : 0.4, 
   ease : 'power2.out' 
 }); 
 

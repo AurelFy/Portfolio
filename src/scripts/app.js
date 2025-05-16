@@ -89,3 +89,26 @@ gsap.from('.pres--appear', {
   stagger : 0.5, 
   ease : 'power2.out' 
 }); 
+
+
+// ANIMATION TITRE CASE STUDY 
+
+const titre = document.querySelector('.title--prj'); 
+const texte = titre.textContent; 
+
+titre.innerHTML = ''; 
+
+texte.split('').forEach((letter) => {
+  const span = document.createElement('span'); 
+  span.textContent = letter; 
+  span.style.display = 'inline-block'; 
+  titre.appendChild(span)
+}); 
+
+gsap.from('.title--prj span', {
+  opacity : 0, 
+  x : -10, 
+  duration : 0.4, 
+  stagger : 0.1, 
+  ease : 'back.out(1.7)'
+});

@@ -490,6 +490,59 @@ html, body {
         margin-top: 0;
     }
 
+    .menu--burger {
+        display: none;
+    }
+
+    .menu--links {
+        position: relative;
+        background-color: transparent;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        gap: 32px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        padding: 20px;
+    }
+
+    .menu--links__el {
+        transition: all;
+    }
+
+    .menu--links__el::before {
+        content: "—";
+        color: #b34949;
+        font-weight: 900;
+        opacity: 0;
+        transition: all ease-out 0.6s;
+    }
+
+    .menu--links__el::before {
+        margin-right: 5px;
+    }
+
+    .menu--links__el:hover {
+
+
+        &::before {
+            opacity: 1;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    .menu--links__hidden {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .menu {
+        padding: 20px 57px;
+    }
+
 }
 
 @media (min-width: 1024px) {
@@ -636,6 +689,10 @@ html, body {
 
 // CASE STUDIES 
 
+.menu--case {
+    background-color: #121212;
+}
+
 .title {
     width: 100vw;
     height: 100vh;
@@ -649,12 +706,16 @@ html, body {
     text-transform: uppercase;
     width: 100%;
     text-align: center;
-    font-size: 87px;
+    font-size: clamp(5.4375rem, 2.5417rem + 12.8704vw, 14.125rem);
 }
 
 .chapter {
     padding: 0 clamp(1rem, -0.7096rem + 7.598vw, 2.9375rem);
     max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 41px;
 }
 
 .chapter--text {
@@ -722,13 +783,86 @@ html, body {
     margin: 72px 0;
 }
 
+.content {
+    margin-bottom: clamp(5.4375rem, 3.9167rem + 6.7593vw, 10rem);
+}
+
 @media (min-width: 768px) {
+
+    .chapter {
+        margin: 0 47px 97px 47px;
+    }
 
     .chapter--number {
         font-size: 97px;
     }
 
+    .chapter--number__two {
+        margin: -50px 0;
+    }
+
+    .chapter--deco {
+        margin: 0;
+    }
+
 }
+
+@media (min-width: 1024px) {
+
+    .chapter {
+        margin: 0 160px 160px 160px;
+    }
+
+    .chapter--number {
+        font-size: 160px;
+    }
+
+    .chapter--number__two {
+        margin: -100px 0;
+    }
+
+    .separator {
+        margin: 160px 0;
+    }
+
+
+}
+
+
+// CREDITS 
+
+.credits {
+    width: 100vw;
+    height: 100vh;
+}
+
+.credits--title {
+    font-size: 60px;
+    color: #fafafa;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.credits--sub {
+    font-size: 34px;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+
+    .menu--cred {
+        background-color: transparent;
+    }
+
+}
+
 
 
 

@@ -1,114 +1,131 @@
 "use strict";
 
-import {gsap} from "gsap"; 
-import {ScrollTrigger} from "gsap/ScrollTrigger"; 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 // NAVIGATION MOBILE
+  const menuBtn = document.querySelector(".menu--burger");
+  const menu = document.querySelector(".menu--links");
+  const menuLinks = document.querySelectorAll(".menu--links__el");
 
-var menuBtn = document.querySelector(".menu--burger");
-menuBtn.addEventListener("click", openMenu);
-
-function openMenu(){
-  var menu = document.querySelector(".menu--links");
-  menu.classList.toggle("menu--links__hidden");
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("menu--links__hidden");
+    });
   }
 
-var menuLinks = document.querySelectorAll(".menu--links__el");
+  if (menu && menuLinks.length > 0) {
+    menuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.toggle("menu--links__hidden");
+      });
+    });
+  }
 
-menuLinks.forEach(function(link) {
-    link.addEventListener("click", hideMenu);
+  // CURSEUR PERSO
+  const cursor = document.querySelector(".cursor--center");
+  const circle = document.querySelector(".cursor--circle");
+
+  if (cursor && circle) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    const speed = 0.15;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    function animateCursor() {
+      currentX += (mouseX - currentX) * speed;
+      currentY += (mouseY - currentY) * speed;
+
+      circle.style.left = `${currentX}px`;
+      circle.style.top = `${currentY}px`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+  }
+
+  // ANIMATIONS GSAP
+  gsap.registerPlugin(ScrollTrigger);
+
+  const aboutText = document.querySelector('.about--text');
+  const presAppear = document.querySelector('.pres--appear');
+
+  if (aboutText) {
+    gsap.from('.about--text', {
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top 50%',
+        toggleActions: 'restart reset restart reset',
+      },
+      x: -50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.4,
+      ease: 'power2.out'
+    });
+  }
+
+  if (presAppear) {
+    gsap.from('.pres--appear', {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.5,
+      ease: 'power2.out'
+    });
+  }
+
+  // ANIMATION TITRE CASE STUDY/CREDITS
+
+const titres = document.querySelectorAll('.title--prj, .credits--title');
+
+titres.forEach((titre) => {
+  const texte = titre.textContent;
+  titre.innerHTML = '';
+
+  texte.split('').forEach((letter) => {
+    const span = document.createElement('span');
+    span.textContent = letter;
+    span.style.display = 'inline-block';
+    titre.appendChild(span);
+  });
 });
-    
-function hideMenu() {
-    var menu = document.querySelector(".menu--links");
-    menu.classList.toggle("menu--links__hidden");
-} 
 
-// REGLE LE PROBLEME D'AFFICHAGE AU LOAD
-
-window.addEventListener('load', () => {
-  window.scrollTo(0, 0);
+gsap.from('.title--prj span, .credits--title span', {
+  opacity: 0,
+  x: -10,
+  duration: 0.4,
+  stagger: 0.1,
+  ease: 'back.out(1.7)'
 });
 
-// CURSEUR PERSO 
+gsap.utils.toArray(".chapter--deco__number").forEach((el) => {
+  const innerElements = el.querySelectorAll("*");
 
-const cursor = document.querySelector('.cursor--center');
-const circle = document.querySelector('.cursor--circle');
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: el,
+      start: "top 70%",
+      toggleActions: "restart reset restart reset"
+    }
+  });
 
-window.addEventListener('mousemove', (e) => {
-  cursor.style.left = `${e.clientX}px`;
-  cursor.style.top = `${e.clientY}px`;
-});
-
-let mouseX = 0;
-let mouseY = 0;
-let currentX = 0;
-let currentY = 0;
-const speed = 0.15; // Plus c'est bas, plus le mouvement est lent (0.1 = délai ~0.5s)
-
-window.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-function animate() {
-  currentX += (mouseX - currentX) * speed;
-  currentY += (mouseY - currentY) * speed;
-
-  circle.style.left = `${currentX}px`;
-  circle.style.top = `${currentY}px`;
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-
-
-// ANIMATION TEXTE
-
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.from('.about--text', {
-  scrollTrigger: {
-    trigger : '.about', 
-    start : 'top 50%',
-    toggleActions : 'restart reset restart reset'
-  }, 
-  x : -50,
-  opacity : 0, 
-  duration : 1,
-  stagger : 0.4, 
-  ease : 'power2.out' 
-}); 
-
-gsap.from('.pres--appear', { 
-  y : 50,
-  opacity : 0, 
-  duration : 1,
-  stagger : 0.5, 
-  ease : 'power2.out' 
-}); 
-
-
-// ANIMATION TITRE CASE STUDY 
-
-const titre = document.querySelector('.title--prj'); 
-const texte = titre.textContent; 
-
-titre.innerHTML = ''; 
-
-texte.split('').forEach((letter) => {
-  const span = document.createElement('span'); 
-  span.textContent = letter; 
-  span.style.display = 'inline-block'; 
-  titre.appendChild(span)
-}); 
-
-gsap.from('.title--prj span', {
-  opacity : 0, 
-  x : -10, 
-  duration : 0.4, 
-  stagger : 0.1, 
-  ease : 'back.out(1.7)'
+  tl.from(innerElements, {
+    opacity: 0,
+    x: -30,
+    duration: 0.8,
+    ease: "power2.out",
+    stagger: 0.3, 
+  });
 });

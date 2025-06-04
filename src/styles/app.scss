@@ -387,23 +387,38 @@ html, body {
 // CREDITS 
 
 .credits--content {
-    margin: 0 28px;
+    margin: 0 28px 60px 28px;
+}
+
+.credits--title {
+    font-size: clamp(3.75rem, 1.9541rem + 7.9819vw, 7.0625rem);
+    color: #fafafa;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 100px 16px 60px 16px;
+
 }
 
 .credits--title__big {
-    font-size: 34px;
+    font-size: clamp(2.125rem, 1.3456rem + 3.4639vw, 3.5625rem);
     margin-bottom: 41px;
 }
 
 .credits--title__big span {
     color: #b34949;
-    font-size: 49px;
+    font-size: clamp(3.0625rem, 2.012rem + 4.6687vw, 5rem);
 }
 
 .credits--title__small {
-    font-size: 28px;
+    font-size: clamp(1.75rem, 1.3434rem + 1.8072vw, 2.5rem);
     font-weight: 400;
     margin-bottom: 23px ;
+}
+
+.credits--text {
+    max-width: 344px;
+    font-size: clamp(1.1875rem, 0.8486rem + 1.506vw, 1.8125rem);
 }
 
 .credits--text a {
@@ -412,6 +427,10 @@ html, body {
 
 .credits--text:first-of-type {
     margin-bottom: 41px;
+}
+
+.credits--line {
+    display: none;
 }
     
 
@@ -449,8 +468,13 @@ html, body {
     justify-content: space-between;
 }
 
+.footer--content__credits {
+    text-decoration: underline transparent;
+    transition: all ease-out 0.4s;
+}
+
 .footer--content__credits:hover {
-    text-decoration: underline;
+    text-decoration: underline #fafafa;
 }
 
 
@@ -541,6 +565,7 @@ html, body {
 
 .chapter--deco__img img {
     width: 100%;
+    text-align: center;
 }
 
 .separator {
@@ -557,51 +582,6 @@ html, body {
 
 
 // CREDITS 
-
-.credits--title {
-    font-size: 60px;
-    color: #fafafa;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 100px 16px 60px 16px;
-
-}
-
-.credits--sub {
-    font-size: 34px;
-    font-weight: 400;
-    text-align: center;
-}
-
-.credits--content {
-    margin: 0 28px 60px 28px;
-}
-
-.credits--title__big {
-    font-size: 34px;
-    margin-bottom: 41px;
-    text-transform: uppercase;
-}
-
-.credits--title__big span {
-    color: #b34949;
-    font-size: 49px;
-}
-
-.credits--title__small {
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 23px ;
-}
-
-.credits--text a {
-    color: #b34949;
-}
-
-.credits--text:first-of-type {
-    margin-bottom: 41px;
-}
 
 @media (min-width: 768px){
 
@@ -746,6 +726,14 @@ html, body {
 
     .menu--cred {
         background-color: transparent;
+    }
+
+    .credits--text {
+        max-width: 500px;
+    }
+
+    .credits {
+        padding: 0 47px;
     }
 
 }
@@ -894,7 +882,7 @@ html, body {
     }
 
     .chapter {
-        margin: 0 20% 160px 20%;
+        margin: 0 80px 160px 80px;
     }
 
     .chapter--number {
@@ -907,6 +895,14 @@ html, body {
 
     .separator {
         margin: 160px 0;
+    }
+
+    .credits {
+        padding: 0 160px;
+    }
+
+    .credits--text {
+        max-width: 600px;
     }
 
 }

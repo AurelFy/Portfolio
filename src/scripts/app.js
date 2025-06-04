@@ -88,7 +88,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   // ANIMATION TITRE CASE STUDY/CREDITS
 
-const titres = document.querySelectorAll('.title--prj, .credits--title');
+const titres = document.querySelectorAll('.title--prj', );
 
 titres.forEach((titre) => {
   const texte = titre.textContent;
@@ -96,19 +96,24 @@ titres.forEach((titre) => {
 
   texte.split('').forEach((letter) => {
     const span = document.createElement('span');
+    span.classList.add('title--prj__span')
     span.textContent = letter;
     span.style.display = 'inline-block';
     titre.appendChild(span);
   });
 });
 
-gsap.from('.title--prj span, .credits--title span', {
-  opacity: 0,
-  x: -10,
-  duration: 0.4,
-  stagger: 0.1,
-  ease: 'back.out(1.7)'
-});
+  gsap.from('.title--prj__span, .cred--anim', {
+    opacity: 0,
+    x: -20,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: 'back.out(1.7)'
+  });
+
+
+
+
 
 gsap.utils.toArray(".chapter--deco__number").forEach((el) => {
   const innerElements = el.querySelectorAll("*");

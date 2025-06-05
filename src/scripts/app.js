@@ -103,13 +103,19 @@ titres.forEach((titre) => {
   });
 });
 
-  gsap.from('.title--prj__span, .cred--anim', {
-    opacity: 0,
-    x: -20,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'back.out(1.7)'
-  });
+const titlePrj = document.querySelector('.title--prj__span')
+const credAnim = document.querySelector('.cred--anim')
+
+  if(titlePrj & credAnim) {
+    gsap.from('.title--prj__span, .cred--anim', {
+      opacity: 0,
+      x: -20,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'back.out(1.7)'
+    });
+  }
+  
 
 
 

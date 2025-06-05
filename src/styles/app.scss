@@ -269,6 +269,12 @@ html, body {
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 23px;
+    transition: all ease-out 0.4s;
+
+    &:hover {
+        transform: scale(1.3);
+    }
+
 }
 
 .about--links__github {
@@ -507,6 +513,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-bottom: 41px;
 }
 
@@ -539,7 +546,6 @@ html, body {
 }
 
 .chapter--number {
-    // font-size: 41px;
     font-size: clamp(2.5625rem, -0.5257rem + 13.7255vw, 6.0625rem);
     font-weight: 400;
     justify-content: center;
@@ -882,7 +888,7 @@ html, body {
     }
 
     .chapter {
-        margin: 0 80px 160px 80px;
+        margin: 0 80px 160px 160px;
     }
 
     .chapter--number {

@@ -133,7 +133,7 @@ html, body {
     padding: 23px;
     font-weight: 400;
     font-size: 49px;
-    background-image: url('../assets/images/background_pc.png');
+    background-image: url('../assets/images/background_pc.webp');
     object-fit: cover;
 }
 
@@ -574,17 +574,48 @@ html, body {
     text-align: center;
 }
 
-.separator {
-    height: 2px;
-    width: 10%;
-    background: #fafafa;
-    left: 0;
-    margin: 72px 0;
-}
-
 .content {
     margin-bottom: clamp(5.4375rem, 3.9167rem + 6.7593vw, 10rem);
 }
+
+.case--btn {
+    font-size: 23px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 72px;
+    text-decoration: underline transparent;
+    transition: all ease-out 0.4s;
+
+    &:hover {
+        text-decoration: underline #fafafa;
+    }
+
+    &::after, &::before {
+        content: '';
+        width: 23px;
+        height: 2px;
+        background-color: #b34949;
+        transition: all ease-out 0.4s;
+    }
+
+    &::before {
+        margin-right: 11px;
+    }
+
+    &::after {
+        margin-left: 11px;
+    }
+
+} 
+
+.case--btn:hover::before, .case--btn:hover::after {
+        width: 60px;
+}
+
+
+
 
 
 // CREDITS 
@@ -728,6 +759,28 @@ html, body {
 
     .chapter--deco {
         margin: 0;
+    }
+
+    .case--btn {
+        font-size: 32px;
+        margin-top: 81px;
+    
+        &::after, &::before {
+            width: 32px;
+        }
+    
+        &::before {
+            margin-right: 12px;
+        }
+    
+        &::after {
+            margin-left: 12px;
+        }
+    
+    } 
+    
+    .case--btn:hover::before, .case--btn:hover::after {
+            width: 67px;
     }
 
     .menu--cred {
@@ -897,6 +950,28 @@ html, body {
 
     .chapter--number__two {
         margin: -100px 0;
+    }
+
+    .case--btn {
+        font-size: 40px;
+        margin-top: 118px;
+    
+        &::after, &::before {
+            width: 40px;
+        }
+    
+        &::before {
+            margin-right: 14px;
+        }
+    
+        &::after {
+            margin-left: 14px;
+        }
+    
+    } 
+    
+    .case--btn:hover::before, .case--btn:hover::after {
+            width: 80px;
     }
 
     .separator {

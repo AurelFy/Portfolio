@@ -23,9 +23,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
     });
   }
 
-  // CURSEUR PERSO
+  // CURSEUR PERSO 
   const cursor = document.querySelector(".cursor--center");
   const circle = document.querySelector(".cursor--circle");
+
+  // IA 
 
   if (cursor && circle) {
     let mouseX = 0;
@@ -35,15 +37,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
     const speed = 0.15;
 
     window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      mouseX = e.clientX; // donne la position de la souris par rapport à la fenêtre
+      mouseY = e.clientY; // donne la position de la souris par rapport à la fenêtre
 
-      cursor.style.left = `${e.clientX}px`;
+      cursor.style.left = `${e.clientX}px`; // déplace le curseur pour qu'il suive la souris
       cursor.style.top = `${e.clientY}px`;
     });
 
     function animateCursor() {
-      currentX += (mouseX - currentX) * speed;
+      currentX += (mouseX - currentX) * speed; // met a jour pour que ça suive la souris avec le délai
       currentY += (mouseY - currentY) * speed;
 
       circle.style.left = `${currentX}px`;
@@ -86,14 +88,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
     });
   }
 
-  // ANIMATION TITRE CASE STUDY/CREDITS
+  // ANIMATION TITRE CASE STUDY/CREDITS : 
 
 const titres = document.querySelectorAll('.title--prj', );
 
-titres.forEach((titre) => {
+titres.forEach((titre) => { 
   const texte = titre.textContent;
   titre.innerHTML = '';
 
+  // IA utilisée
   texte.split('').forEach((letter) => {
     const span = document.createElement('span');
     span.classList.add('title--prj__span')
@@ -120,7 +123,7 @@ gsap.from('.title--prj__span, .cred--anim', {
 
 
 gsap.utils.toArray(".chapter--deco__number").forEach((el) => {
-  const innerElements = el.querySelectorAll("*");
+  const chapterNum = el.querySelectorAll("*");
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -130,7 +133,7 @@ gsap.utils.toArray(".chapter--deco__number").forEach((el) => {
     }
   });
 
-  tl.from(innerElements, {
+  tl.from(chapterNum, {
     opacity: 0,
     x: -30,
     duration: 0.8,

@@ -4,7 +4,6 @@
 * {
     margin: 0;
     padding: 0;
-    cursor: none;
 }
 
 html {
@@ -27,7 +26,7 @@ a {
 
 body {
     background-color: #121212;
-    font-family: 'Arsenica Variable', serif;
+    font-family: 'arsenica-variable', serif;
     color: #fafafa;
     position: relative;
 }
@@ -42,26 +41,8 @@ html, body {
 
 // CURSEUR 
 
-.cursor--center {
-    width: 10px;
-    height: 10px;
-    background-color: #b34949; 
-  }
-
-.cursor--circle {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #b34949;
-    background-color: transparent;
-    
-}
-
 .cursor--center, .cursor--circle {
-    pointer-events: none;
-    position: fixed;
-    transform: translate(-50%, -50%); 
-    z-index: 100000;
-    border-radius: 50px;
+    display: none;
 }
 
 // MENU
@@ -798,6 +779,34 @@ html, body {
 }
 
 @media (min-width: 1024px) {
+
+    * {
+        cursor: none;
+    }
+
+
+    .cursor--center {
+        width: 10px;
+        height: 10px;
+        background-color: #b34949; 
+      }
+    
+    .cursor--circle {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #b34949;
+        background-color: transparent;
+        
+    }
+    
+    .cursor--center, .cursor--circle {
+        pointer-events: none;
+        position: fixed;
+        transform: translate(-50%, -50%); 
+        z-index: 100000;
+        border-radius: 50px;
+        display: inherit;
+    }
 
     .menu--burger {
         display: none;
